@@ -1,0 +1,71 @@
+//* Colors
+$primary: #092C4C;
+$secondary: #0e467a;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import 'login';
+@import 'profile';
+@import 'base/typography';
+@import 'components/cards';
+@import 'components/bidList';
+@import 'base/images';
+@import 'navbar';
+@import 'components/bidForm';
+@import 'footer';
+
+$light-bg: #ffffff;
+$light-text: #000000;
+
+
+$dark-bg: #303030;
+$dark-text: #ffffff;
+
+
+:root {
+  --bg-color: #{$light-bg};
+  --text-color: #{$light-text};
+  --bs-card-title-color: var(--text-color);
+}
+
+[data-theme="dark"] {
+  --bg-color: #{$dark-bg};
+  --text-color: #{$dark-text};
+  --bs-card-title-color: var(--text-color);
+}
+
+.bg-light {
+  background-color: var(--bg-color) !important;
+}
+
+.card {
+    background-color: var(--bg-color) !important;
+    color: var(--text-color) !important;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    height: 100%;
+}
+
+.card-title, .card-title h5 {
+    color: var(--bs-card-title-color) !important;
+}
+
+
+a {
+    color: var(--primary-color);
+}
+
+.btn {
+    color: #ffffff !important;
+}
+h1, h5, p, strong, .btn-link {
+    color: var(--text-color) !important;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

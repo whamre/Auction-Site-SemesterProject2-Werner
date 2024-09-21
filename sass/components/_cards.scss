@@ -1,0 +1,11 @@
+.card {
+    .card-body {
+        min-height: 200px;
+
+        h5 {
+            font-weight: 600;
+        }
+    }
+
+    border: 2px solid rgba(116, 116, 116, 0.425);
+}

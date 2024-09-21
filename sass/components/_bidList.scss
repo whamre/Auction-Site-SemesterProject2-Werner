@@ -1,0 +1,14 @@
+.bid-list {
+    .list-group {
+        max-height: 175px;
+
+        .list-group-item {
+            background-color: rgba(255, 255, 255, 0);
+        }
+        .highest-bid {
+            border: 1px solid black;
+            border-radius: 5px;
+            background-color: #00ff371a;
+        }
+    }
+}
