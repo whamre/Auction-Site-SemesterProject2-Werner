@@ -1,27 +1,86 @@
+/* General Navbar Styling */
 .navbar {
-    h3 {
-        color: white;
-        font-size: 1.8rem;
-        margin: 0;
-    }
+    padding: 1rem 2rem;
+    background-color: #007bff; /* Bootstrap primary color */
+}
 
-    a {
-        text-decoration: none;
-        margin: 0;
-        color: #ffffff !important;
-        width: 100%;
-        p {
-            margin-bottom: 0;
-            font-size: 1.2rem;
-        }
+/* Navbar Brand (Auction Site Title) */
+.navbar-brand {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Navbar Links */
+.nav-link {
+    color: white !important;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 0.25rem;
     }
-    label {
-        color: #ffffff !important;
+}
+
+/* Buttons in Navbar */
+.nav-item .btn {
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+
+/* Hamburger Toggler Styling */
+.navbar-toggler {
+    border: none;
+    background-color: transparent;
+    .navbar-toggler-icon {
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        display: block;
+        position: relative;
+    }
+    .navbar-toggler-icon::before,
+    .navbar-toggler-icon::after {
+        content: '';
+        width: 100%;
+        height: 3px;
+        background-color: white;
+        position: absolute;
+        left: 0;
+    }
+    .navbar-toggler-icon::before {
+        top: -8px;
+    }
+    .navbar-toggler-icon::after {
+        top: 8px;
+    }
+}
+
+/* Dark Mode Switch */
+.form-check-label {
+    color: white;
+}
+
+/* Responsive Design for Mobile View */
+@media (max-width: 992px) {
+    .navbar-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 1rem;
+
     }
 
     .nav-item {
-        p {
-            color: #ffffff !important;
-        }
+        width: 40%;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .nav-item .btn {
+        width: 100%;
     }
 }
