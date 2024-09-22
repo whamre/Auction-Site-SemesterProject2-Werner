@@ -1,17 +1,15 @@
-/* General Navbar Styling */
+
 .navbar {
     padding: 1rem 2rem;
-    background-color: #007bff; /* Bootstrap primary color */
+    background-color: #007bff;
 }
 
-/* Navbar Brand (Auction Site Title) */
 .navbar-brand {
     color: white;
     font-size: 1.5rem;
     font-weight: bold;
 }
 
-/* Navbar Links */
 .nav-link {
     color: white !important;
     padding: 0.5rem 1rem;
@@ -23,14 +21,12 @@
     }
 }
 
-/* Buttons in Navbar */
 .nav-item .btn {
     margin-left: 1rem;
     padding: 0.5rem 1rem;
     font-size: 1rem;
 }
 
-/* Hamburger Toggler Styling */
 .navbar-toggler {
     border: none;
     background-color: transparent;
@@ -58,12 +54,10 @@
     }
 }
 
-/* Dark Mode Switch */
 .form-check-label {
     color: white;
 }
 
-/* Responsive Design for Mobile View */
 @media (max-width: 992px) {
     .navbar-nav {
         display: flex;

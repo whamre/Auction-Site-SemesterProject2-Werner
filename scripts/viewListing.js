@@ -1,6 +1,11 @@
 const apiUrl = "https://v2.api.noroff.dev";
 
 
+/**
+ * Extracts a query parameter value from the current URL by name.
+ * @param {string} param The name of the parameter to extract.
+ * @returns {string|null} The value of the parameter, or null if not found.
+ */
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
@@ -8,6 +13,11 @@ function getQueryParam(param) {
 
 const listingId = getQueryParam('id');
 
+/**
+ * Fetches the details of a listing with the given ID from the API.
+ * @param {number|string} listingId The ID of the listing to fetch.
+ * @throws {Error} If the request fails or the API returns an error.
+ */
 async function fetchListingDetails(listingId) {
     try {
         const response = await fetch(`${apiUrl}/auction/listings/${listingId}?_bids=true`);
@@ -25,6 +35,15 @@ async function fetchListingDetails(listingId) {
 }
 
 
+/**
+ * Displays the details of a listing in the page.
+ * @param {object} listing The object containing the listing details.
+ * @property {string} listing.title The title of the listing.
+ * @property {string} listing.description The description of the listing.
+ * @property {array} listing.media The media items of the listing.
+ * @property {array} [listing.bids] The bids placed on the listing.
+ * @property {number} listing.endsAt The timestamp when the listing ends.
+ */
 function displayListingDetails(listing) {
     const image = document.getElementById("image");
     const title = document.getElementById("title");
@@ -79,6 +98,11 @@ placeBidBtn.addEventListener('click', async function(event) {
     }
 });
 
+/**
+ * Populates the bid list element with the given bids in reverse chronological order.
+ * If the list of bids is not empty, it also highlights the highest bid.
+ * @param {Bid[]} bids The list of bids to display.
+ */
 function bidsPlaced(bids) {
     const bidList = document.getElementById('bidList');
 
@@ -124,6 +148,12 @@ function bidsPlaced(bids) {
         });
     }
 }
+
+/**
+ * Places a bid on the listing with the given ID.
+ * @param {string} bidAmount The amount of the bid in credits.
+ * @throws {Error} If the request fails or the API returns an error.
+ */
 
 async function placeBid(bidAmount) {
     const userString = localStorage.getItem('user');
@@ -175,6 +205,7 @@ async function placeBid(bidAmount) {
         throw error;
     }
 }
+
 
 function updateAuthButtons() {
     const userString = localStorage.getItem('user');

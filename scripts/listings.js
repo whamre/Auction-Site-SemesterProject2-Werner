@@ -1,3 +1,7 @@
+/**
+ * Fetches the list of active listings from the API and calls displayListings
+ * when the data is received.
+ */
 function fetchListings() {
     fetch(`${apiUrl}/auction/listings?_bids=true&_active=true`)
         .then(response => {
@@ -16,6 +20,13 @@ function fetchListings() {
         });
 }
 
+/**
+ * Displays the given list of listings in the #listings element.
+ * If a sort function is provided, the listings are sorted before being displayed.
+ * @param {Listing[]} listings The list of listings to display.
+ * @param {Function} [sort] A function to sort the listings. If not provided, the listings
+ * are not sorted.
+ */
 function displayListings(listings, sort = null) {
     const listingsContainer = document.getElementById("listings");
     listingsContainer.innerHTML = '';

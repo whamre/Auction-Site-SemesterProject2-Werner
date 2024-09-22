@@ -7,6 +7,14 @@ const loginErrorMessageDiv = document.getElementById("login-error-message");
 
 // Login Function
 
+/**
+ * Logs in a user with the given email and password.
+ * The user data is stored in local storage and an API key is created.
+ * @param {string} email The email of the user.
+ * @param {string} password The password of the user.
+ * @throws {Error} If the request fails or the API returns an error.
+ * @returns {Promise<Object>} The user data if the login is successful.
+ */
 async function login(email, password) {
     const loginData = {
         email: email,
@@ -40,6 +48,12 @@ async function login(email, password) {
     }
 }
 
+/**
+ * Creates an API key for the logged in user and stores it in localStorage.
+ * The user is redirected to index.html after the API key is created.
+ * If the user is not logged in, the function does nothing.
+ * @throws {Error} If the request fails or the API returns an error.
+ */
 async function createApiKey() {
     const storedUser = localStorage.getItem('user');
 
@@ -74,6 +88,16 @@ async function createApiKey() {
 
 
 // Register Function
+
+/**
+ * Registers a new user with the given data.
+ * @param {Object} userData The user data to register with.
+ * @property {string} userData.email The email of the user.
+ * @property {string} userData.name The name of the user.
+ * @property {string} userData.password The password of the user.
+ * @throws {Error} If the request fails or the API returns an error.
+ * @returns {Promise<Object>} The user data if the registration is successful.
+ */
 
 async function register(userData) {
     try {
@@ -117,6 +141,12 @@ if (loginForm) {
 
 // Register requirements.
 
+/**
+ * Validates the given email and password for registration.
+ * @param {string} email The email to check.
+ * @param {string} password The password to check.
+ * @returns {string|null} An error message if validation fails, or null if it succeeds.
+ */
 function validateRegistrationForm(email, password) {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@stud\.noroff\.no$/;
     if (!emailRegex.test(email)) {

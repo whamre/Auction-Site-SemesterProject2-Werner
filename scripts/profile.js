@@ -10,6 +10,13 @@ const user = JSON.parse(userString);
 const accessToken = user.data.accessToken;
 const apiKey = localStorage.getItem('apiKey');
 
+/**
+ * Gets the user's profile information from the API
+ * and populates the DOM with it.
+ *
+ * @function getProfiles
+ * @returns {undefined}
+ */
 async function getProfiles() {
     if (apiKey && storedUser) {
         const user = JSON.parse(storedUser);
@@ -40,6 +47,13 @@ async function getProfiles() {
     }
 }
 
+/**
+ * Populates the user's profile information in the DOM
+ * based on the given profileData object.
+ *
+ * @param {object} profileData - The user's profile information from the API.
+ * @returns {undefined}
+ */
 function populateProfile(profileData) {
     document.getElementById('banner').src = profileData.banner.url;
     document.getElementById('banner').alt = profileData.banner.alt || 'User Banner';
@@ -61,6 +75,10 @@ function populateProfile(profileData) {
     }
 }
 
+/**
+ * Displays the user's listings in the DOM.
+ *
+ */
 async function displayMyListings() {
     const listingsContainer = document.getElementById('listings-container');
 
@@ -188,6 +206,11 @@ async function displayMyListings() {
     }
 }
 
+/**
+ * Edits a listing with the given id.
+ * @param {number} listingId
+ * @throws {Error} if the request fails
+ */
 async function editListing(listingId) {
     const title = document.getElementById('title').value.trim();
     const description = document.getElementById('description').value.trim();
@@ -231,6 +254,15 @@ async function editListing(listingId) {
     }
 }
 
+/**
+ * Opens the edit listing modal with the given listing's data pre-filled.
+ * @param {Object} listing The listing to pre-fill the modal with.
+ * @property {string} listing.title The title of the listing.
+ * @property {string} [listing.description] The description of the listing.
+ * @property {Array} [listing.media] An array of media objects for the listing.
+ * @property {string} [listing.media[0].url] The URL of the first media item.
+ * @property {number} listing.id The ID of the listing.
+ */
 function openEditModal(listing) {
     document.getElementById('title').value = listing.title || '';
     document.getElementById('description').value = listing.description || '';
@@ -258,6 +290,11 @@ document.getElementById('delete-listing').addEventListener('click', async functi
     }
 });
 
+/**
+ * Deletes the listing with the given ID.
+ * @param {string} listingId The ID of the listing to delete.
+ * @throws {Error} If the request fails or the API returns an error.
+ */
 async function deleteListing(listingId) {
     try {
         const response = await fetch(`${apiUrl}/auction/listings/${listingId}`, {
@@ -286,6 +323,12 @@ async function deleteListing(listingId) {
     }
 }
 
+/**
+ * Displays a Bootstrap alert message in the #listings-container element.
+ * If any alerts already exist, they are removed.
+ * @param {string} type The type of alert to display.
+ * @param {string} message The message to display in the alert.
+ */
 function showAlert(type, message) {
     const listingsContainer = document.getElementById('listings-container');
     const alertDiv = document.createElement('div');
@@ -331,6 +374,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+/**
+ * Updates the visibility of the login, logout and my page buttons based on the user's authentication status.
+ * If the user is authenticated, the login button is hidden and the logout and my page buttons are shown.
+ * If the user is not authenticated, the logout and my page buttons are hidden and the login button is shown.
+ * If the page is the profile page, the my page button is also hidden.
+ */
 function updateAuthButtons() {
     const userString = localStorage.getItem('user');
     const user = userString ? JSON.parse(userString) : null;
@@ -353,6 +402,14 @@ function updateAuthButtons() {
     }
 }
 
+/**
+ * Updates the user's profile information with the given bio, avatar URL and banner URL.
+ * If the user is not authenticated, the function does nothing.
+ * @param {string} bio - The new bio text.
+ * @param {string} avatarUrl - The new avatar URL.
+ * @param {string} bannerUrl - The new banner URL.
+ * @return {Promise<void>} - The promise resolves when the profile has been updated successfully.
+ */
 async function updateProfile(bio, avatarUrl, bannerUrl) {
     const userString = localStorage.getItem('user');
     if (!userString) {
