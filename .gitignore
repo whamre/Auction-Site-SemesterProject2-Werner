@@ -3,10 +3,6 @@ node_modules/
 npm-debug.log
 yarn-error.log
 
-# Sass generated files
-public/css/*.css
-public/css/*.css.map
-
 # Logs
 logs
 *.log
