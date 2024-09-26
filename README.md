@@ -14,12 +14,12 @@ All API functionality is managed by an exisiting application. This project only 
 
 ### Technologies Used
 
-- HTML: Structure and content.
-- CSS (Sass): Styles and responsiveness.
-- JavaScript: Client-side logic and API interaction.
-- Bootstrap: UI components and layout.
-- Node.js: For dependency management and Sass compilation.
-- API: Interacts with the Noroff API.
+- HTML
+- CSS (Sass)
+- JavaScript
+- Bootstrap
+- Node.js
+
 
 ## Features
 
